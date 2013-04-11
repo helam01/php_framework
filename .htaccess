@@ -1,4 +1,5 @@
-RewriteEngine on
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?key=$1
+RewriteEngine on
+
+RewriteRule !\.(js|gif|jpg|jpeg|png|css|txt|swf|php)$ public/index.php [L]
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]
